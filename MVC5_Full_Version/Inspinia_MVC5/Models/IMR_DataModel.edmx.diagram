@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5962d1eaa6f943c7bf578264b00f71db" Name="Diagram1">
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.About" Width="1.5" PointX="9.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Address" Width="1.5" PointX="10.5" PointY="55.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Ad" Width="1.5" PointX="9.75" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Agent" Width="1.5" PointX="9.75" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Application_Supporters" Width="1.5" PointX="9.75" PointY="31.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Application_Vendor" Width="1.5" PointX="12.75" PointY="32.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Application" Width="1.5" PointX="7.5" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.AspNetRole" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.AspNetUser" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Company" Width="1.5" PointX="5.25" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Content" Width="1.5" PointX="12.75" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.ContentType" Width="1.5" PointX="10.5" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Continent" Width="1.5" PointX="13.5" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Country" Width="1.5" PointX="8.25" PointY="56.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.DeviceType" Width="1.5" PointX="9.75" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Event" Width="1.5" PointX="12.75" PointY="35.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Geolocation" Width="1.5" PointX="15.75" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Hint" Width="1.5" PointX="18" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Image" Width="1.5" PointX="9.75" PointY="47.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.MobileUser" Width="1.5" PointX="9.75" PointY="50.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.QA" Width="1.5" PointX="15.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.QuestionType" Width="1.5" PointX="13.5" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Sequence" Width="1.5" PointX="9.75" PointY="38" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.SequenceType" Width="1.5" PointX="7.5" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.State" Width="1.5" PointX="13.5" PointY="40.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Supporter_Roles" Width="1.5" PointX="0.75" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Supporter" Width="1.5" PointX="3" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Text" Width="1.5" PointX="9.75" PointY="62.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Utility" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Vendor" Width="1.5" PointX="10.5" PointY="42.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.VideoAudio" Width="1.5" PointX="9.75" PointY="65.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Voice" Width="1.5" PointX="9.75" PointY="69" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.webpages_Membership" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.webpages_OAuthMembership" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.webpages_Roles" Width="1.5" PointX="0.75" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Notification" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.Setting" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Copy_IMR_TestModel.User" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_About_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Address_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Address_States" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Ads_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Agent_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Application_Supporter_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Application_Supporter_Supporter" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Application_Vendor_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Application_Vendor_Vendor" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Application_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Content_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Events_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Geolocation_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Images_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_MobileUser_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Question_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Sequence_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Texts_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_VideoAudio_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Voice_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.fk_Company_Supporter" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Supporter_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Content_ContentType" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_ContinentID" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Country_0" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Geolocations_0" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Parent_Geolocation" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Hint_QA" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_QA_QuestionType" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Sequence_Next" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Sequence_SequenceType" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.FK_Supporter_Supporter_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.Address_Events" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.Device" ManuallyRouted="false" />
+        <AssociationConnector Association="Copy_IMR_TestModel.webpages_UsersInRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

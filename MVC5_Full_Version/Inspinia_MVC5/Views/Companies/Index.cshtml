@@ -1,0 +1,128 @@
+﻿@model Inspinia_MVC5.Models.Company
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>List of Company</h5>
+					<div class="ibox-tools">
+						@Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary btn-xs"})
+					</div>
+                </div>
+                <div class="ibox-content">
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company_Url)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Supporter.UserName)
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+@foreach (var company in (List<Inspinia_MVC5.Models.Company>)ViewData["companies"])
+{
+    <tr>
+        <td>
+            @company.Name
+        </td>
+        <td>
+            @company.Email
+        </td>
+        <td>
+            @company.Phone
+        </td>
+        <td>
+            @company.Street
+        </td>
+        <td>
+            @company.City
+        </td>
+        <td>
+            @company.State
+        </td>
+        <td>
+            @company.Country
+        </td>
+        <td>
+            @company.PostalCode
+        </td>
+        <td>
+            @company.Description
+        </td>
+        <td>
+            @company.Status
+        </td>
+        <td>
+            @company.Company_Url
+        </td>
+        <td>
+            @if (@company.Supporter != null)
+            {
+                @company.Supporter.UserName
+            }
+        </td>
+        <td>
+			@Html.ActionLink("Details", "Details", new { id=company.Company_Id }, new { @class = "btn btn-primary btn-sm"})
+            @Html.ActionLink("Edit", "Edit", new { id=company.Company_Id }, new { @class = "btn btn-white btn-sm"})
+            @Html.ActionLink("Delete", "Delete", new { id=company.Company_Id }, new { @class = "btn btn-white btn-sm"})
+        </td>
+    </tr>
+}
+</table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+
+</body>
+</html>
+
+

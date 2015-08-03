@@ -1,0 +1,89 @@
+﻿@model Inspinia_MVC5.Models.Supporter
+@{
+    ViewBag.Title = "PrivateProfile";
+}
+<h2>PrivateProfile</h2>
+<fieldset>
+    <legend>Supporter</legend>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Supporter_Id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Supporter_Id)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserName)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Company.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Company.Name)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Supporter_Role.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Supporter_Role.Name)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Phone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Street)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Street)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.City)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.City)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.State)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.State)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Country)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Country)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.PostalCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PostalCode)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditProfile")
+</p>

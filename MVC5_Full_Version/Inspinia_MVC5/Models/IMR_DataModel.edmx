@@ -1,0 +1,2963 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Copy_IMR_TestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="About">
+          <Key>
+            <PropertyRef Name="About_Id" />
+          </Key>
+          <Property Name="About_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="text" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Application_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address_1" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Address_2" Type="nvarchar" MaxLength="255" />
+          <Property Name="Address_3" Type="nvarchar" MaxLength="255" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="StateProvinceID" Type="int" />
+          <Property Name="CountryID" Type="int" Nullable="false" />
+          <Property Name="Postal_Code" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Address_Events">
+          <Key>
+            <PropertyRef Name="Address_Id" />
+            <PropertyRef Name="Events_Id" />
+            <PropertyRef Name="Application_Id" />
+          </Key>
+          <Property Name="Address_Id" Type="int" Nullable="false" />
+          <Property Name="Events_Id" Type="int" Nullable="false" />
+          <Property Name="Application_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ads">
+          <Key>
+            <PropertyRef Name="Ads_Id" />
+          </Key>
+          <Property Name="Ads_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Url" Type="text" Nullable="false" />
+          <Property Name="Application_Id" Type="int" Nullable="false" />
+          <Property Name="DownloadTime" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Agent">
+          <Key>
+            <PropertyRef Name="Agent_Id" />
+          </Key>
+          <Property Name="Agent_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Application_Id" Type="int" Nullable="false" />
+          <Property Name="Path" Type="varchar" MaxLength="200" />
+          <Property Name="Url" Type="varchar" MaxLength="200" />
+          <Property Name="DownloadTime" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Application_Supporters">
+          <Key>
+            <PropertyRef Name="Application_Id" />
+            <PropertyRef Name="Supporter_Id" />
+          </Key>
+          <Property Name="Application_Id" Type="int" Nullable="false" />
+          <Property Name="Supporter_Id" Type="int" Nullable="false" />
+          <Property Name="Data" Type="text" />
+        </EntityType>
+        <EntityType Name="Application_Vendor">
+          <Key>
+            <PropertyRef Name="Vendor_Id" />
+            <PropertyRef Name="Application_Id" />
+          </Key>
+          <Property Name="Vendor_Id" Type="int" Nullable="false" />
+          <Property Name="Application_Id" Type="int" Nullable="false" />
+          <Property Name="Data" Type="text" />
+        </EntityType>
+        <EntityType Name="Applications">
+          <Key>
+            <PropertyRef Name="Application_Id" />
+          </Key>
+          <Property Name="Application_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Company_Id" Type="int" Nullable="false" />
+          <Property Name="ApplicationToken" Type="char" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+          <Property Name="User_Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="Company_Id" />
+          </Key>
+          <Property Name="Company_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+          <Property Name="Street" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" MaxLength="30" />
+          <Property Name="State" Type="nvarchar" MaxLength="20" />
+          <Property Name="Country" Type="char" MaxLength="3" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Admin_Id" Type="int" />
+          <Property Name="Company_Url" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Contents">
+          <Key>
+            <PropertyRef Name="Content_Id" />
+          </Key>
+          <Property Name="Content_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Application_Id" Type="int" Nullable="false" />
+          <Property Name="ContentType_Id" Type="int" Nullable="false" />
+          <Property Name="Path" Type="varchar" MaxLength="50" />
+          <Property Name="Url" Type="varchar" MaxLength="200" />
+          <Property Name="DownloadTime" Type="int" Nullable="false" />
+          <Property Name="Seq" Type="int" />
+          <Property Name="Place" Type="int" />
+        </EntityType>
+        <EntityType Name="ContentTypes">
+          <Key>
+            <PropertyRef Name="ContentType_Id" />
+          </Key>
+          <Property Name="ContentType_Id" Type="int" Nullable="false" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Continents">
+          <Key>
+            <PropertyRef Name="ContinentID" />
+          </Key>
+          <Property Name="ContinentID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="abbreviation" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="code" Type="char" MaxLength="3" />
+          <Property Name="ContinentID" Type="int" />
+          <Property Name="Continent_Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Device">
+          <Key>
+            <PropertyRef Name="Device_Id" />
+          </Key>
+          <Property Name="Device_Id" Type="int" Nullable="false" />
+          <Property Name="Application_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeviceType">
+          <Key>
+            <PropertyRef Name="Device_Id" />
+          </Key>
+          <Property Name="Device_Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Application_Id" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Application_Id" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Start_Date" Type="datetime" />
+          <Property Name="End_Date" Type="datetime" />
+          <Property Name="Category" Type="int" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="Longitude" Type="float" />
+          <Property Name="Altitude" Type="float" />
+        </EntityType>
+        <EntityType Name="Geolocations">
+          <Key>
+            <PropertyRef Name="GeolocationID" />
+          </Key>
+          <Property Name="GeolocationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Latitude" Type="float" Nullable="false" />
+          <Property Name="Longitude" Type="float" Nullable="false" />
+          <Property Name="Altitude" Type="float" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Application_Id" Type="int" Nullable="false" />
+          <Property Name="Parent_Geo_Id" Type="int" />
+          <Property Name="Range" Type="float" />
+          <Property Name="DownloadTime" Type="int" Nullable="false" />
+          <Property Name="ContinentID" Type="int" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="StateID" Type="int" />
+          <Property Name="CityID" Type="int" />
+        </EntityType>
+        <EntityType Name="Hint">
+          <Key>
+            <PropertyRef Name="Hint_Id" />
+          </Key>
+          <Property Name="Hint_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="text" Nullable="false" />
+          <Property Name="QA_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="Application_Id" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Application_Id" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Path" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="DownloadTime" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MobileUsers">
+          <Key>
+            <PropertyRef Name="MobileUser_Id" />
+          </Key>
+          <Property Name="MobileUser_Id" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Application_Id" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" MaxLength="30" />
+          <Property Name="State" Type="nvarchar" MaxLength="20" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="10" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="OptOut" Type="bit" />
+          <Property Name="PushNotify" Type="bit" />
+        </EntityType>
+        <EntityType Name="QAs">
+          <Key>
+            <PropertyRef Name="QAID" />
+          </Key>
+          <Property Name="QAID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Subtitle" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Question" Type="text" Nullable="false" />
+          <Property Name="Answer" Type="text" Nullable="false" />
+          <Property Name="Type_Id" Type="int" />
+          <Property Name="Application_Id" Type="int" Nullable="false" />
+          <Property Name="Geo_Id" Type="int" />
+          <Property Name="DownloadTime" Type="int" Nullable="false" />
+          <Property Name="Sequence_Num" Type="int" />
+        </EntityType>
+        <EntityType Name="QuestionType">
+          <Key>
+            <PropertyRef Name="Type_Id" />
+          </Key>
+          <Property Name="Type_Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sequence">
+          <Key>
+            <PropertyRef Name="Sequence_Id" />
+          </Key>
+          <Property Name="Sequence_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Next_Id" Type="int" />
+          <Property Name="Item_Id" Type="int" Nullable="false" />
+          <Property Name="SequenceType_Id" Type="int" Nullable="false" />
+          <Property Name="Application_Id" Type="int" Nullable="false" />
+          <Property Name="DownloadTime" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SequenceType">
+          <Key>
+            <PropertyRef Name="SequenceType_Id" />
+          </Key>
+          <Property Name="SequenceType_Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="States">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="abbreviation" Type="nchar" MaxLength="2" />
+          <Property Name="country" Type="varchar" MaxLength="255" />
+          <Property Name="type" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Supporter_Roles">
+          <Key>
+            <PropertyRef Name="Role_Id" />
+          </Key>
+          <Property Name="Role_Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Supporters">
+          <Key>
+            <PropertyRef Name="Supporter_Id" />
+          </Key>
+          <Property Name="Supporter_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Company_Id" Type="int" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="30" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="30" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+          <Property Name="Street" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" MaxLength="30" />
+          <Property Name="State" Type="nvarchar" MaxLength="20" />
+          <Property Name="Country" Type="char" MaxLength="3" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Password" Type="nvarchar" MaxLength="10" />
+          <Property Name="FirstTime" Type="bit" Nullable="false" />
+          <Property Name="Role_Id" Type="int" Nullable="false" />
+          <Property Name="RememberMe" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Texts">
+          <Key>
+            <PropertyRef Name="Application_Id" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Application_Id" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="DownloadTime" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Utilities">
+          <Key>
+            <PropertyRef Name="Utility_Id" />
+          </Key>
+          <Property Name="Utility_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Item" Type="nvarchar(max)" />
+          <Property Name="Method" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="Vendor_Id" />
+          </Key>
+          <Property Name="Vendor_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="VideoAudio">
+          <Key>
+            <PropertyRef Name="Application_Id" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Application_Id" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Tilte" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Path" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="DownloadTime" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Voice">
+          <Key>
+            <PropertyRef Name="Voice_Id" />
+          </Key>
+          <Property Name="Voice_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Url" Type="varchar" MaxLength="200" />
+          <Property Name="Application_Id" Type="int" Nullable="false" />
+          <Property Name="Path" Type="varchar" MaxLength="200" />
+          <Property Name="Description" Type="text" />
+          <Property Name="DownloadTime" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsConfirmed" Type="bit" />
+          <Property Name="LastPasswordFailureDate" Type="datetime" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordChangedDate" Type="datetime" />
+          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ProviderUserId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="__createdAt" Type="datetimeoffset" Precision="3" Nullable="false" />
+          <Property Name="__updatedAt" Type="datetimeoffset" Precision="3" />
+          <Property Name="__version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Settings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="__createdAt" Type="datetimeoffset" Precision="3" Nullable="false" />
+          <Property Name="__updatedAt" Type="datetimeoffset" Precision="3" />
+          <Property Name="__version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="__createdAt" Type="datetimeoffset" Precision="3" Nullable="false" />
+          <Property Name="__updatedAt" Type="datetimeoffset" Precision="3" />
+          <Property Name="__version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_About_Application">
+          <End Role="Applications" Type="Self.Applications" Multiplicity="1" />
+          <End Role="About" Type="Self.About" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="About">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Events_Address">
+          <End Role="Address" Type="Self.Address" Multiplicity="1" />
+          <End Role="Address_Events" Type="Self.Address_Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Address_Events">
+              <PropertyRef Name="Address_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Events_Events">
+          <End Role="Events" Type="Self.Events" Multiplicity="1" />
+          <End Role="Address_Events" Type="Self.Address_Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="ID" />
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Address_Events">
+              <PropertyRef Name="Events_Id" />
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_States">
+          <End Role="States" Type="Self.States" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="StateProvinceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ads_Application">
+          <End Role="Applications" Type="Self.Applications" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ads" Type="Self.Ads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Ads">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Agent_Application">
+          <End Role="Applications" Type="Self.Applications" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Agent">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Company">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Applications" Type="Self.Applications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="Company_Id" />
+            </Principal>
+            <Dependent Role="Applications">
+              <PropertyRef Name="Company_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Supporter_Application">
+          <End Role="Applications" Type="Self.Applications" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Application_Supporters" Type="Self.Application_Supporters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Application_Supporters">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Supporter_Supporter">
+          <End Role="Supporters" Type="Self.Supporters" Multiplicity="1" />
+          <End Role="Application_Supporters" Type="Self.Application_Supporters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supporters">
+              <PropertyRef Name="Supporter_Id" />
+            </Principal>
+            <Dependent Role="Application_Supporters">
+              <PropertyRef Name="Supporter_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Vendor_Application">
+          <End Role="Applications" Type="Self.Applications" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Application_Vendor" Type="Self.Application_Vendor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Application_Vendor">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Vendor_Vendor">
+          <End Role="Vendor" Type="Self.Vendor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Application_Vendor" Type="Self.Application_Vendor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="Vendor_Id" />
+            </Principal>
+            <Dependent Role="Application_Vendor">
+              <PropertyRef Name="Vendor_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Company_Supporter">
+          <End Role="Supporters" Type="Self.Supporters" Multiplicity="0..1" />
+          <End Role="Companies" Type="Self.Companies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supporters">
+              <PropertyRef Name="Supporter_Id" />
+            </Principal>
+            <Dependent Role="Companies">
+              <PropertyRef Name="Admin_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Content_Application">
+          <End Role="Applications" Type="Self.Applications" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contents" Type="Self.Contents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Contents">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Content_ContentType">
+          <End Role="ContentTypes" Type="Self.ContentTypes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contents" Type="Self.Contents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContentTypes">
+              <PropertyRef Name="ContentType_Id" />
+            </Principal>
+            <Dependent Role="Contents">
+              <PropertyRef Name="ContentType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContinentID">
+          <End Role="Continents" Type="Self.Continents" Multiplicity="0..1" />
+          <End Role="Geolocations" Type="Self.Geolocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Continents">
+              <PropertyRef Name="ContinentID" />
+            </Principal>
+            <Dependent Role="Geolocations">
+              <PropertyRef Name="ContinentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Country_0">
+          <End Role="Continents" Type="Self.Continents" Multiplicity="0..1" />
+          <End Role="Country" Type="Self.Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Continents">
+              <PropertyRef Name="ContinentID" />
+            </Principal>
+            <Dependent Role="Country">
+              <PropertyRef Name="ContinentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Device_Application">
+          <End Role="Applications" Type="Self.Applications" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Device" Type="Self.Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Device">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Device_DeviceType">
+          <End Role="DeviceType" Type="Self.DeviceType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Device" Type="Self.Device" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DeviceType">
+              <PropertyRef Name="Device_Id" />
+            </Principal>
+            <Dependent Role="Device">
+              <PropertyRef Name="Device_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Events_Application">
+          <End Role="Applications" Type="Self.Applications" Multiplicity="1" />
+          <End Role="Events" Type="Self.Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Geolocation_Application">
+          <End Role="Applications" Type="Self.Applications" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Geolocations" Type="Self.Geolocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Geolocations">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Geolocations_0">
+          <End Role="States" Type="Self.States" Multiplicity="0..1" />
+          <End Role="Geolocations" Type="Self.Geolocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Geolocations">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hint_QA">
+          <End Role="QAs" Type="Self.QAs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Hint" Type="Self.Hint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QAs">
+              <PropertyRef Name="QAID" />
+            </Principal>
+            <Dependent Role="Hint">
+              <PropertyRef Name="QA_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Images_Application">
+          <End Role="Applications" Type="Self.Applications" Multiplicity="1" />
+          <End Role="Images" Type="Self.Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MobileUser_Application">
+          <End Role="Applications" Type="Self.Applications" Multiplicity="1" />
+          <End Role="MobileUsers" Type="Self.MobileUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="MobileUsers">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Parent_Geolocation">
+          <End Role="Geolocations" Type="Self.Geolocations" Multiplicity="0..1" />
+          <End Role="Geolocations1" Type="Self.Geolocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Geolocations">
+              <PropertyRef Name="GeolocationID" />
+            </Principal>
+            <Dependent Role="Geolocations1">
+              <PropertyRef Name="Parent_Geo_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QA_QuestionType">
+          <End Role="QuestionType" Type="Self.QuestionType" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="QAs" Type="Self.QAs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuestionType">
+              <PropertyRef Name="Type_Id" />
+            </Principal>
+            <Dependent Role="QAs">
+              <PropertyRef Name="Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Question_Application">
+          <End Role="Applications" Type="Self.Applications" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="QAs" Type="Self.QAs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="QAs">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RoleId">
+          <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="1" />
+          <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="webpages_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sequence_Application">
+          <End Role="Applications" Type="Self.Applications" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sequence" Type="Self.Sequence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Sequence">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sequence_Next">
+          <End Role="Sequence" Type="Self.Sequence" Multiplicity="0..1" />
+          <End Role="Sequence1" Type="Self.Sequence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sequence">
+              <PropertyRef Name="Sequence_Id" />
+            </Principal>
+            <Dependent Role="Sequence1">
+              <PropertyRef Name="Next_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sequence_SequenceType">
+          <End Role="SequenceType" Type="Self.SequenceType" Multiplicity="1" />
+          <End Role="Sequence" Type="Self.Sequence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SequenceType">
+              <PropertyRef Name="SequenceType_Id" />
+            </Principal>
+            <Dependent Role="Sequence">
+              <PropertyRef Name="SequenceType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supporter_Company">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Supporters" Type="Self.Supporters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="Company_Id" />
+            </Principal>
+            <Dependent Role="Supporters">
+              <PropertyRef Name="Company_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supporter_Supporter_Role">
+          <End Role="Supporter_Roles" Type="Self.Supporter_Roles" Multiplicity="1" />
+          <End Role="Supporters" Type="Self.Supporters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supporter_Roles">
+              <PropertyRef Name="Role_Id" />
+            </Principal>
+            <Dependent Role="Supporters">
+              <PropertyRef Name="Role_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Texts_Application">
+          <End Role="Applications" Type="Self.Applications" Multiplicity="1" />
+          <End Role="Texts" Type="Self.Texts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Texts">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_UserId">
+          <End Role="Supporters" Type="Self.Supporters" Multiplicity="1" />
+          <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supporters">
+              <PropertyRef Name="Supporter_Id" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoAudio_Application">
+          <End Role="Applications" Type="Self.Applications" Multiplicity="1" />
+          <End Role="VideoAudio" Type="Self.VideoAudio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="VideoAudio">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Voice_Application">
+          <End Role="Applications" Type="Self.Applications" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Voice" Type="Self.Voice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Voice">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Copy_IMR_TestModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="About" EntityType="Self.About" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Address_Events" EntityType="Self.Address_Events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ads" EntityType="Self.Ads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Agent" EntityType="Self.Agent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Application_Supporters" EntityType="Self.Application_Supporters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Application_Vendor" EntityType="Self.Application_Vendor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Applications" EntityType="Self.Applications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contents" EntityType="Self.Contents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContentTypes" EntityType="Self.ContentTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Continents" EntityType="Self.Continents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Device" EntityType="Self.Device" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeviceType" EntityType="Self.DeviceType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Geolocations" EntityType="Self.Geolocations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hint" EntityType="Self.Hint" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MobileUsers" EntityType="Self.MobileUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QAs" EntityType="Self.QAs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuestionType" EntityType="Self.QuestionType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sequence" EntityType="Self.Sequence" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SequenceType" EntityType="Self.SequenceType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supporter_Roles" EntityType="Self.Supporter_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supporters" EntityType="Self.Supporters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Texts" EntityType="Self.Texts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilities" EntityType="Self.Utilities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vendor" EntityType="Self.Vendor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VideoAudio" EntityType="Self.VideoAudio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Voice" EntityType="Self.Voice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_UsersInRoles" EntityType="Self.webpages_UsersInRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notification" EntityType="Self.Notification" Schema="outlookAndroid" store:Type="Tables" />
+          <EntitySet Name="Settings" EntityType="Self.Settings" Schema="outlookAndroid" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="outlookAndroid" store:Type="Tables" />
+          <AssociationSet Name="FK_About_Application" Association="Self.FK_About_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="About" EntitySet="About" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Country" Association="Self.FK_Address_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Events_Address" Association="Self.FK_Address_Events_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Address_Events" EntitySet="Address_Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Events_Events" Association="Self.FK_Address_Events_Events">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Address_Events" EntitySet="Address_Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_States" Association="Self.FK_Address_States">
+            <End Role="States" EntitySet="States" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ads_Application" Association="Self.FK_Ads_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Ads" EntitySet="Ads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Agent_Application" Association="Self.FK_Agent_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Agent" EntitySet="Agent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Company" Association="Self.FK_Application_Company">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Applications" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Supporter_Application" Association="Self.FK_Application_Supporter_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Application_Supporters" EntitySet="Application_Supporters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Supporter_Supporter" Association="Self.FK_Application_Supporter_Supporter">
+            <End Role="Supporters" EntitySet="Supporters" />
+            <End Role="Application_Supporters" EntitySet="Application_Supporters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Vendor_Application" Association="Self.FK_Application_Vendor_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Application_Vendor" EntitySet="Application_Vendor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Vendor_Vendor" Association="Self.FK_Application_Vendor_Vendor">
+            <End Role="Vendor" EntitySet="Vendor" />
+            <End Role="Application_Vendor" EntitySet="Application_Vendor" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Company_Supporter" Association="Self.fk_Company_Supporter">
+            <End Role="Supporters" EntitySet="Supporters" />
+            <End Role="Companies" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Content_Application" Association="Self.FK_Content_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Contents" EntitySet="Contents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Content_ContentType" Association="Self.FK_Content_ContentType">
+            <End Role="ContentTypes" EntitySet="ContentTypes" />
+            <End Role="Contents" EntitySet="Contents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContinentID" Association="Self.FK_ContinentID">
+            <End Role="Continents" EntitySet="Continents" />
+            <End Role="Geolocations" EntitySet="Geolocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Country_0" Association="Self.FK_Country_0">
+            <End Role="Continents" EntitySet="Continents" />
+            <End Role="Country" EntitySet="Country" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Device_Application" Association="Self.FK_Device_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Device" EntitySet="Device" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Device_DeviceType" Association="Self.FK_Device_DeviceType">
+            <End Role="DeviceType" EntitySet="DeviceType" />
+            <End Role="Device" EntitySet="Device" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Events_Application" Association="Self.FK_Events_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Geolocation_Application" Association="Self.FK_Geolocation_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Geolocations" EntitySet="Geolocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Geolocations_0" Association="Self.FK_Geolocations_0">
+            <End Role="States" EntitySet="States" />
+            <End Role="Geolocations" EntitySet="Geolocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hint_QA" Association="Self.FK_Hint_QA">
+            <End Role="QAs" EntitySet="QAs" />
+            <End Role="Hint" EntitySet="Hint" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Images_Application" Association="Self.FK_Images_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MobileUser_Application" Association="Self.FK_MobileUser_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="MobileUsers" EntitySet="MobileUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Parent_Geolocation" Association="Self.FK_Parent_Geolocation">
+            <End Role="Geolocations" EntitySet="Geolocations" />
+            <End Role="Geolocations1" EntitySet="Geolocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QA_QuestionType" Association="Self.FK_QA_QuestionType">
+            <End Role="QuestionType" EntitySet="QuestionType" />
+            <End Role="QAs" EntitySet="QAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_Application" Association="Self.FK_Question_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="QAs" EntitySet="QAs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RoleId" Association="Self.fk_RoleId">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sequence_Application" Association="Self.FK_Sequence_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Sequence" EntitySet="Sequence" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sequence_Next" Association="Self.FK_Sequence_Next">
+            <End Role="Sequence" EntitySet="Sequence" />
+            <End Role="Sequence1" EntitySet="Sequence" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sequence_SequenceType" Association="Self.FK_Sequence_SequenceType">
+            <End Role="SequenceType" EntitySet="SequenceType" />
+            <End Role="Sequence" EntitySet="Sequence" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supporter_Company" Association="Self.FK_Supporter_Company">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Supporters" EntitySet="Supporters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supporter_Supporter_Role" Association="Self.FK_Supporter_Supporter_Role">
+            <End Role="Supporter_Roles" EntitySet="Supporter_Roles" />
+            <End Role="Supporters" EntitySet="Supporters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Texts_Application" Association="Self.FK_Texts_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Texts" EntitySet="Texts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_UserId" Association="Self.fk_UserId">
+            <End Role="Supporters" EntitySet="Supporters" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoAudio_Application" Association="Self.FK_VideoAudio_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="VideoAudio" EntitySet="VideoAudio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Voice_Application" Association="Self.FK_Voice_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Voice" EntitySet="Voice" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Copy_IMR_TestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="About">
+          <Key>
+            <PropertyRef Name="About_Id" />
+          </Key>
+          <Property Name="About_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Application_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_About_Application" FromRole="About" ToRole="Applications" />
+        </EntityType>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address_1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address_2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Address_3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StateProvinceID" Type="Int32" />
+          <Property Name="CountryID" Type="Int32" Nullable="false" />
+          <Property Name="Postal_Code" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_Address_Country" FromRole="Address" ToRole="Country" />
+          <NavigationProperty Name="State" Relationship="Self.FK_Address_States" FromRole="Address" ToRole="States" />
+          <NavigationProperty Name="Events" Relationship="Self.Address_Events" FromRole="Address" ToRole="Events" />
+        </EntityType>
+        <EntityType Name="Ad">
+          <Key>
+            <PropertyRef Name="Ads_Id" />
+          </Key>
+          <Property Name="Ads_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Application_Id" Type="Int32" Nullable="false" />
+          <Property Name="DownloadTime" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Ads_Application" FromRole="Ads" ToRole="Applications" />
+        </EntityType>
+        <EntityType Name="Agent">
+          <Key>
+            <PropertyRef Name="Agent_Id" />
+          </Key>
+          <Property Name="Agent_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Application_Id" Type="Int32" Nullable="false" />
+          <Property Name="Path" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DownloadTime" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Agent_Application" FromRole="Agent" ToRole="Applications" />
+        </EntityType>
+        <EntityType Name="Application_Supporters">
+          <Key>
+            <PropertyRef Name="Application_Id" />
+            <PropertyRef Name="Supporter_Id" />
+          </Key>
+          <Property Name="Application_Id" Type="Int32" Nullable="false" />
+          <Property Name="Supporter_Id" Type="Int32" Nullable="false" />
+          <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Application_Supporter_Application" FromRole="Application_Supporters" ToRole="Applications" />
+          <NavigationProperty Name="Supporter" Relationship="Self.FK_Application_Supporter_Supporter" FromRole="Application_Supporters" ToRole="Supporters" />
+        </EntityType>
+        <EntityType Name="Application_Vendor">
+          <Key>
+            <PropertyRef Name="Vendor_Id" />
+            <PropertyRef Name="Application_Id" />
+          </Key>
+          <Property Name="Vendor_Id" Type="Int32" Nullable="false" />
+          <Property Name="Application_Id" Type="Int32" Nullable="false" />
+          <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Application_Vendor_Application" FromRole="Application_Vendor" ToRole="Applications" />
+          <NavigationProperty Name="Vendor" Relationship="Self.FK_Application_Vendor_Vendor" FromRole="Application_Vendor" ToRole="Vendor" />
+        </EntityType>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="Application_Id" />
+          </Key>
+          <Property Name="Application_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Id" Type="Int32" Nullable="false" />
+          <Property Name="ApplicationToken" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Abouts" Relationship="Self.FK_About_Application" FromRole="Applications" ToRole="About" />
+          <NavigationProperty Name="Ads" Relationship="Self.FK_Ads_Application" FromRole="Applications" ToRole="Ads" />
+          <NavigationProperty Name="Agents" Relationship="Self.FK_Agent_Application" FromRole="Applications" ToRole="Agent" />
+          <NavigationProperty Name="Application_Supporters" Relationship="Self.FK_Application_Supporter_Application" FromRole="Applications" ToRole="Application_Supporters" />
+          <NavigationProperty Name="Application_Vendor" Relationship="Self.FK_Application_Vendor_Application" FromRole="Applications" ToRole="Application_Vendor" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Application_Company" FromRole="Applications" ToRole="Companies" />
+          <NavigationProperty Name="Contents" Relationship="Self.FK_Content_Application" FromRole="Applications" ToRole="Contents" />
+          <NavigationProperty Name="Events" Relationship="Self.FK_Events_Application" FromRole="Applications" ToRole="Events" />
+          <NavigationProperty Name="Geolocations" Relationship="Self.FK_Geolocation_Application" FromRole="Applications" ToRole="Geolocations" />
+          <NavigationProperty Name="Images" Relationship="Self.FK_Images_Application" FromRole="Applications" ToRole="Images" />
+          <NavigationProperty Name="MobileUsers" Relationship="Self.FK_MobileUser_Application" FromRole="Applications" ToRole="MobileUsers" />
+          <NavigationProperty Name="QAs" Relationship="Self.FK_Question_Application" FromRole="Applications" ToRole="QAs" />
+          <NavigationProperty Name="Sequences" Relationship="Self.FK_Sequence_Application" FromRole="Applications" ToRole="Sequence" />
+          <NavigationProperty Name="Texts" Relationship="Self.FK_Texts_Application" FromRole="Applications" ToRole="Texts" />
+          <NavigationProperty Name="VideoAudios" Relationship="Self.FK_VideoAudio_Application" FromRole="Applications" ToRole="VideoAudio" />
+          <NavigationProperty Name="Voices" Relationship="Self.FK_Voice_Application" FromRole="Applications" ToRole="Voice" />
+          <NavigationProperty Name="DeviceTypes" Relationship="Self.Device" FromRole="Applications" ToRole="DeviceType" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="User_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Company_Id" />
+          </Key>
+          <Property Name="Company_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Admin_Id" Type="Int32" />
+          <Property Name="Company_Url" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Applications" Relationship="Self.FK_Application_Company" FromRole="Companies" ToRole="Applications" />
+          <NavigationProperty Name="Supporter" Relationship="Self.fk_Company_Supporter" FromRole="Companies" ToRole="Supporters" />
+          <NavigationProperty Name="Supporters" Relationship="Self.FK_Supporter_Company" FromRole="Companies" ToRole="Supporters" />
+        </EntityType>
+        <EntityType Name="Content">
+          <Key>
+            <PropertyRef Name="Content_Id" />
+          </Key>
+          <Property Name="Content_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Application_Id" Type="Int32" Nullable="false" />
+          <Property Name="ContentType_Id" Type="Int32" Nullable="false" />
+          <Property Name="Path" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DownloadTime" Type="Int32" Nullable="false" />
+          <Property Name="Seq" Type="Int32" />
+          <Property Name="Place" Type="Int32" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Content_Application" FromRole="Contents" ToRole="Applications" />
+          <NavigationProperty Name="ContentType" Relationship="Self.FK_Content_ContentType" FromRole="Contents" ToRole="ContentTypes" />
+        </EntityType>
+        <EntityType Name="ContentType">
+          <Key>
+            <PropertyRef Name="ContentType_Id" />
+          </Key>
+          <Property Name="ContentType_Id" Type="Int32" Nullable="false" />
+          <Property Name="TypeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Contents" Relationship="Self.FK_Content_ContentType" FromRole="ContentTypes" ToRole="Contents" />
+        </EntityType>
+        <EntityType Name="Continent">
+          <Key>
+            <PropertyRef Name="ContinentID" />
+          </Key>
+          <Property Name="ContinentID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Geolocations" Relationship="Self.FK_ContinentID" FromRole="Continents" ToRole="Geolocations" />
+          <NavigationProperty Name="Countries" Relationship="Self.FK_Country_0" FromRole="Continents" ToRole="Country" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="abbreviation" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="ContinentID" Type="Int32" />
+          <Property Name="Continent_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK_Address_Country" FromRole="Country" ToRole="Address" />
+          <NavigationProperty Name="Continent" Relationship="Self.FK_Country_0" FromRole="Country" ToRole="Continents" />
+        </EntityType>
+        <EntityType Name="DeviceType">
+          <Key>
+            <PropertyRef Name="Device_Id" />
+          </Key>
+          <Property Name="Device_Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="Self.Device" FromRole="DeviceType" ToRole="Applications" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Application_Id" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Application_Id" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Start_Date" Type="DateTime" Precision="3" />
+          <Property Name="End_Date" Type="DateTime" Precision="3" />
+          <Property Name="Category" Type="Int32" />
+          <Property Name="Latitude" Type="Double" />
+          <Property Name="Longitude" Type="Double" />
+          <Property Name="Altitude" Type="Double" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Events_Application" FromRole="Events" ToRole="Applications" />
+          <NavigationProperty Name="Addresses" Relationship="Self.Address_Events" FromRole="Events" ToRole="Address" />
+        </EntityType>
+        <EntityType Name="Geolocation">
+          <Key>
+            <PropertyRef Name="GeolocationID" />
+          </Key>
+          <Property Name="GeolocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Latitude" Type="Double" Nullable="false" />
+          <Property Name="Longitude" Type="Double" Nullable="false" />
+          <Property Name="Altitude" Type="Double" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Application_Id" Type="Int32" Nullable="false" />
+          <Property Name="Parent_Geo_Id" Type="Int32" />
+          <Property Name="Range" Type="Double" />
+          <Property Name="DownloadTime" Type="Int32" Nullable="false" />
+          <Property Name="ContinentID" Type="Int32" />
+          <Property Name="CountryID" Type="Int32" />
+          <Property Name="StateID" Type="Int32" />
+          <Property Name="CityID" Type="Int32" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Geolocation_Application" FromRole="Geolocations" ToRole="Applications" />
+          <NavigationProperty Name="Continent" Relationship="Self.FK_ContinentID" FromRole="Geolocations" ToRole="Continents" />
+          <NavigationProperty Name="State" Relationship="Self.FK_Geolocations_0" FromRole="Geolocations" ToRole="States" />
+          <NavigationProperty Name="Geolocations1" Relationship="Self.FK_Parent_Geolocation" FromRole="Geolocations" ToRole="Geolocations1" />
+          <NavigationProperty Name="Geolocation1" Relationship="Self.FK_Parent_Geolocation" FromRole="Geolocations1" ToRole="Geolocations" />
+        </EntityType>
+        <EntityType Name="Hint">
+          <Key>
+            <PropertyRef Name="Hint_Id" />
+          </Key>
+          <Property Name="Hint_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="QA_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="QA" Relationship="Self.FK_Hint_QA" FromRole="Hint" ToRole="QAs" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Application_Id" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Application_Id" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Path" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DownloadTime" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Images_Application" FromRole="Images" ToRole="Applications" />
+        </EntityType>
+        <EntityType Name="MobileUser">
+          <Key>
+            <PropertyRef Name="MobileUser_Id" />
+          </Key>
+          <Property Name="MobileUser_Id" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Application_Id" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OptOut" Type="Boolean" />
+          <Property Name="PushNotify" Type="Boolean" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_MobileUser_Application" FromRole="MobileUsers" ToRole="Applications" />
+        </EntityType>
+        <EntityType Name="QA">
+          <Key>
+            <PropertyRef Name="QAID" />
+          </Key>
+          <Property Name="QAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Subtitle" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type_Id" Type="Int32" />
+          <Property Name="Application_Id" Type="Int32" Nullable="false" />
+          <Property Name="Geo_Id" Type="Int32" />
+          <Property Name="DownloadTime" Type="Int32" Nullable="false" />
+          <Property Name="Sequence_Num" Type="Int32" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Question_Application" FromRole="QAs" ToRole="Applications" />
+          <NavigationProperty Name="Hints" Relationship="Self.FK_Hint_QA" FromRole="QAs" ToRole="Hint" />
+          <NavigationProperty Name="QuestionType" Relationship="Self.FK_QA_QuestionType" FromRole="QAs" ToRole="QuestionType" />
+        </EntityType>
+        <EntityType Name="QuestionType">
+          <Key>
+            <PropertyRef Name="Type_Id" />
+          </Key>
+          <Property Name="Type_Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="QAs" Relationship="Self.FK_QA_QuestionType" FromRole="QuestionType" ToRole="QAs" />
+        </EntityType>
+        <EntityType Name="Sequence">
+          <Key>
+            <PropertyRef Name="Sequence_Id" />
+          </Key>
+          <Property Name="Sequence_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Next_Id" Type="Int32" />
+          <Property Name="Item_Id" Type="Int32" Nullable="false" />
+          <Property Name="SequenceType_Id" Type="Int32" Nullable="false" />
+          <Property Name="Application_Id" Type="Int32" Nullable="false" />
+          <Property Name="DownloadTime" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Sequence_Application" FromRole="Sequence" ToRole="Applications" />
+          <NavigationProperty Name="Sequence1" Relationship="Self.FK_Sequence_Next" FromRole="Sequence" ToRole="Sequence1" />
+          <NavigationProperty Name="Sequence2" Relationship="Self.FK_Sequence_Next" FromRole="Sequence1" ToRole="Sequence" />
+          <NavigationProperty Name="SequenceType" Relationship="Self.FK_Sequence_SequenceType" FromRole="Sequence" ToRole="SequenceType" />
+        </EntityType>
+        <EntityType Name="SequenceType">
+          <Key>
+            <PropertyRef Name="SequenceType_Id" />
+          </Key>
+          <Property Name="SequenceType_Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Sequences" Relationship="Self.FK_Sequence_SequenceType" FromRole="SequenceType" ToRole="Sequence" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="abbreviation" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="country" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK_Address_States" FromRole="States" ToRole="Address" />
+          <NavigationProperty Name="Geolocations" Relationship="Self.FK_Geolocations_0" FromRole="States" ToRole="Geolocations" />
+        </EntityType>
+        <EntityType Name="Supporter_Roles">
+          <Key>
+            <PropertyRef Name="Role_Id" />
+          </Key>
+          <Property Name="Role_Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Supporters" Relationship="Self.FK_Supporter_Supporter_Role" FromRole="Supporter_Roles" ToRole="Supporters" />
+        </EntityType>
+        <EntityType Name="Supporter">
+          <Key>
+            <PropertyRef Name="Supporter_Id" />
+          </Key>
+          <Property Name="Supporter_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Company_Id" Type="Int32" />
+          <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FirstTime" Type="Boolean" Nullable="false" />
+          <Property Name="Role_Id" Type="Int32" Nullable="false" />
+          <Property Name="RememberMe" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Application_Supporters" Relationship="Self.FK_Application_Supporter_Supporter" FromRole="Supporters" ToRole="Application_Supporters" />
+          <NavigationProperty Name="Companies" Relationship="Self.fk_Company_Supporter" FromRole="Supporters" ToRole="Companies" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Supporter_Company" FromRole="Supporters" ToRole="Companies" />
+          <NavigationProperty Name="Supporter_Roles" Relationship="Self.FK_Supporter_Supporter_Role" FromRole="Supporters" ToRole="Supporter_Roles" />
+          <NavigationProperty Name="webpages_Roles" Relationship="Self.webpages_UsersInRoles" FromRole="Supporters" ToRole="webpages_Roles" />
+        </EntityType>
+        <EntityType Name="Text">
+          <Key>
+            <PropertyRef Name="Application_Id" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Application_Id" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DownloadTime" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Texts_Application" FromRole="Texts" ToRole="Applications" />
+        </EntityType>
+        <EntityType Name="Utility">
+          <Key>
+            <PropertyRef Name="Utility_Id" />
+          </Key>
+          <Property Name="Utility_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Item" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Method" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="Vendor_Id" />
+          </Key>
+          <Property Name="Vendor_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Application_Vendor" Relationship="Self.FK_Application_Vendor_Vendor" FromRole="Vendor" ToRole="Application_Vendor" />
+        </EntityType>
+        <EntityType Name="VideoAudio">
+          <Key>
+            <PropertyRef Name="Application_Id" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Application_Id" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Tilte" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Path" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DownloadTime" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_VideoAudio_Application" FromRole="VideoAudio" ToRole="Applications" />
+        </EntityType>
+        <EntityType Name="Voice">
+          <Key>
+            <PropertyRef Name="Voice_Id" />
+          </Key>
+          <Property Name="Voice_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Application_Id" Type="Int32" Nullable="false" />
+          <Property Name="Path" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DownloadTime" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Voice_Application" FromRole="Voice" ToRole="Applications" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IsConfirmed" Type="Boolean" />
+          <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Supporters" Relationship="Self.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="Supporters" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C__createdAt" Type="DateTimeOffset" Nullable="false" Precision="3" />
+          <Property Name="C__updatedAt" Type="DateTimeOffset" Precision="3" />
+          <Property Name="C__version" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C__createdAt" Type="DateTimeOffset" Nullable="false" Precision="3" />
+          <Property Name="C__updatedAt" Type="DateTimeOffset" Precision="3" />
+          <Property Name="C__version" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C__createdAt" Type="DateTimeOffset" Nullable="false" Precision="3" />
+          <Property Name="C__updatedAt" Type="DateTimeOffset" Precision="3" />
+          <Property Name="C__version" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <Association Name="FK_About_Application">
+          <End Role="Applications" Type="Self.Application" Multiplicity="1" />
+          <End Role="About" Type="Self.About" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="About">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_States">
+          <End Role="States" Type="Self.State" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="StateProvinceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ads_Application">
+          <End Role="Applications" Type="Self.Application" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ads" Type="Self.Ad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Ads">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Agent_Application">
+          <End Role="Applications" Type="Self.Application" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Agent">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Supporter_Application">
+          <End Role="Applications" Type="Self.Application" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Application_Supporters" Type="Self.Application_Supporters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Application_Supporters">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Supporter_Supporter">
+          <End Role="Supporters" Type="Self.Supporter" Multiplicity="1" />
+          <End Role="Application_Supporters" Type="Self.Application_Supporters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supporters">
+              <PropertyRef Name="Supporter_Id" />
+            </Principal>
+            <Dependent Role="Application_Supporters">
+              <PropertyRef Name="Supporter_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Vendor_Application">
+          <End Role="Applications" Type="Self.Application" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Application_Vendor" Type="Self.Application_Vendor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Application_Vendor">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Vendor_Vendor">
+          <End Role="Vendor" Type="Self.Vendor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Application_Vendor" Type="Self.Application_Vendor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="Vendor_Id" />
+            </Principal>
+            <Dependent Role="Application_Vendor">
+              <PropertyRef Name="Vendor_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Company">
+          <End Role="Companies" Type="Self.Company" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Applications" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="Company_Id" />
+            </Principal>
+            <Dependent Role="Applications">
+              <PropertyRef Name="Company_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Content_Application">
+          <End Role="Applications" Type="Self.Application" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contents" Type="Self.Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Contents">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Events_Application">
+          <End Role="Applications" Type="Self.Application" Multiplicity="1" />
+          <End Role="Events" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Geolocation_Application">
+          <End Role="Applications" Type="Self.Application" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Geolocations" Type="Self.Geolocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Geolocations">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Images_Application">
+          <End Role="Applications" Type="Self.Application" Multiplicity="1" />
+          <End Role="Images" Type="Self.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MobileUser_Application">
+          <End Role="Applications" Type="Self.Application" Multiplicity="1" />
+          <End Role="MobileUsers" Type="Self.MobileUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="MobileUsers">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Question_Application">
+          <End Role="Applications" Type="Self.Application" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="QAs" Type="Self.QA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="QAs">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sequence_Application">
+          <End Role="Applications" Type="Self.Application" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sequence" Type="Self.Sequence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Sequence">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Texts_Application">
+          <End Role="Applications" Type="Self.Application" Multiplicity="1" />
+          <End Role="Texts" Type="Self.Text" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Texts">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoAudio_Application">
+          <End Role="Applications" Type="Self.Application" Multiplicity="1" />
+          <End Role="VideoAudio" Type="Self.VideoAudio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="VideoAudio">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Voice_Application">
+          <End Role="Applications" Type="Self.Application" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Voice" Type="Self.Voice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applications">
+              <PropertyRef Name="Application_Id" />
+            </Principal>
+            <Dependent Role="Voice">
+              <PropertyRef Name="Application_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Company_Supporter">
+          <End Role="Supporters" Type="Self.Supporter" Multiplicity="0..1" />
+          <End Role="Companies" Type="Self.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supporters">
+              <PropertyRef Name="Supporter_Id" />
+            </Principal>
+            <Dependent Role="Companies">
+              <PropertyRef Name="Admin_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supporter_Company">
+          <End Role="Companies" Type="Self.Company" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Supporters" Type="Self.Supporter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="Company_Id" />
+            </Principal>
+            <Dependent Role="Supporters">
+              <PropertyRef Name="Company_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Content_ContentType">
+          <End Role="ContentTypes" Type="Self.ContentType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contents" Type="Self.Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContentTypes">
+              <PropertyRef Name="ContentType_Id" />
+            </Principal>
+            <Dependent Role="Contents">
+              <PropertyRef Name="ContentType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContinentID">
+          <End Role="Continents" Type="Self.Continent" Multiplicity="0..1" />
+          <End Role="Geolocations" Type="Self.Geolocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Continents">
+              <PropertyRef Name="ContinentID" />
+            </Principal>
+            <Dependent Role="Geolocations">
+              <PropertyRef Name="ContinentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Country_0">
+          <End Role="Continents" Type="Self.Continent" Multiplicity="0..1" />
+          <End Role="Country" Type="Self.Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Continents">
+              <PropertyRef Name="ContinentID" />
+            </Principal>
+            <Dependent Role="Country">
+              <PropertyRef Name="ContinentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Geolocations_0">
+          <End Role="States" Type="Self.State" Multiplicity="0..1" />
+          <End Role="Geolocations" Type="Self.Geolocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Geolocations">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Parent_Geolocation">
+          <End Role="Geolocations" Type="Self.Geolocation" Multiplicity="0..1" />
+          <End Role="Geolocations1" Type="Self.Geolocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Geolocations">
+              <PropertyRef Name="GeolocationID" />
+            </Principal>
+            <Dependent Role="Geolocations1">
+              <PropertyRef Name="Parent_Geo_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hint_QA">
+          <End Role="QAs" Type="Self.QA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Hint" Type="Self.Hint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QAs">
+              <PropertyRef Name="QAID" />
+            </Principal>
+            <Dependent Role="Hint">
+              <PropertyRef Name="QA_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QA_QuestionType">
+          <End Role="QuestionType" Type="Self.QuestionType" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="QAs" Type="Self.QA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuestionType">
+              <PropertyRef Name="Type_Id" />
+            </Principal>
+            <Dependent Role="QAs">
+              <PropertyRef Name="Type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sequence_Next">
+          <End Role="Sequence" Type="Self.Sequence" Multiplicity="0..1" />
+          <End Role="Sequence1" Type="Self.Sequence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sequence">
+              <PropertyRef Name="Sequence_Id" />
+            </Principal>
+            <Dependent Role="Sequence1">
+              <PropertyRef Name="Next_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sequence_SequenceType">
+          <End Role="SequenceType" Type="Self.SequenceType" Multiplicity="1" />
+          <End Role="Sequence" Type="Self.Sequence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SequenceType">
+              <PropertyRef Name="SequenceType_Id" />
+            </Principal>
+            <Dependent Role="Sequence">
+              <PropertyRef Name="SequenceType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supporter_Supporter_Role">
+          <End Role="Supporter_Roles" Type="Self.Supporter_Roles" Multiplicity="1" />
+          <End Role="Supporters" Type="Self.Supporter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supporter_Roles">
+              <PropertyRef Name="Role_Id" />
+            </Principal>
+            <Dependent Role="Supporters">
+              <PropertyRef Name="Role_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Address_Events">
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <End Role="Events" Type="Self.Event" Multiplicity="*" />
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <Association Name="Device">
+          <End Role="Applications" Type="Self.Application" Multiplicity="0..1" />
+          <End Role="DeviceType" Type="Self.DeviceType" Multiplicity="*" />
+        </Association>
+        <Association Name="webpages_UsersInRoles">
+          <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="*" />
+          <End Role="Supporters" Type="Self.Supporter" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Copy_IMR_TestEntities6" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="Abouts" EntityType="Self.About" />
+          <EntitySet Name="Addresses" EntityType="Self.Address" />
+          <EntitySet Name="Ads" EntityType="Self.Ad" />
+          <EntitySet Name="Agents" EntityType="Self.Agent" />
+          <EntitySet Name="Application_Supporters" EntityType="Self.Application_Supporters" />
+          <EntitySet Name="Application_Vendor" EntityType="Self.Application_Vendor" />
+          <EntitySet Name="Applications" EntityType="Self.Application" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="Contents" EntityType="Self.Content" />
+          <EntitySet Name="ContentTypes" EntityType="Self.ContentType" />
+          <EntitySet Name="Continents" EntityType="Self.Continent" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="DeviceTypes" EntityType="Self.DeviceType" />
+          <EntitySet Name="Events" EntityType="Self.Event" />
+          <EntitySet Name="Geolocations" EntityType="Self.Geolocation" />
+          <EntitySet Name="Hints" EntityType="Self.Hint" />
+          <EntitySet Name="Images" EntityType="Self.Image" />
+          <EntitySet Name="MobileUsers" EntityType="Self.MobileUser" />
+          <EntitySet Name="QAs" EntityType="Self.QA" />
+          <EntitySet Name="QuestionTypes" EntityType="Self.QuestionType" />
+          <EntitySet Name="Sequences" EntityType="Self.Sequence" />
+          <EntitySet Name="SequenceTypes" EntityType="Self.SequenceType" />
+          <EntitySet Name="States" EntityType="Self.State" />
+          <EntitySet Name="Supporter_Roles" EntityType="Self.Supporter_Roles" />
+          <EntitySet Name="Supporters" EntityType="Self.Supporter" />
+          <EntitySet Name="Texts" EntityType="Self.Text" />
+          <EntitySet Name="Utilities" EntityType="Self.Utility" />
+          <EntitySet Name="Vendors" EntityType="Self.Vendor" />
+          <EntitySet Name="VideoAudios" EntityType="Self.VideoAudio" />
+          <EntitySet Name="Voices" EntityType="Self.Voice" />
+          <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" />
+          <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" />
+          <EntitySet Name="Notifications" EntityType="Self.Notification" />
+          <EntitySet Name="Settings" EntityType="Self.Setting" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_About_Application" Association="Self.FK_About_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="About" EntitySet="Abouts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Country" Association="Self.FK_Address_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_States" Association="Self.FK_Address_States">
+            <End Role="States" EntitySet="States" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ads_Application" Association="Self.FK_Ads_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Ads" EntitySet="Ads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Agent_Application" Association="Self.FK_Agent_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Agent" EntitySet="Agents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Supporter_Application" Association="Self.FK_Application_Supporter_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Application_Supporters" EntitySet="Application_Supporters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Supporter_Supporter" Association="Self.FK_Application_Supporter_Supporter">
+            <End Role="Supporters" EntitySet="Supporters" />
+            <End Role="Application_Supporters" EntitySet="Application_Supporters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Vendor_Application" Association="Self.FK_Application_Vendor_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Application_Vendor" EntitySet="Application_Vendor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Vendor_Vendor" Association="Self.FK_Application_Vendor_Vendor">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="Application_Vendor" EntitySet="Application_Vendor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Company" Association="Self.FK_Application_Company">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Applications" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Content_Application" Association="Self.FK_Content_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Contents" EntitySet="Contents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Events_Application" Association="Self.FK_Events_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Geolocation_Application" Association="Self.FK_Geolocation_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Geolocations" EntitySet="Geolocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Images_Application" Association="Self.FK_Images_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MobileUser_Application" Association="Self.FK_MobileUser_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="MobileUsers" EntitySet="MobileUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_Application" Association="Self.FK_Question_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="QAs" EntitySet="QAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sequence_Application" Association="Self.FK_Sequence_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Sequence" EntitySet="Sequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Texts_Application" Association="Self.FK_Texts_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Texts" EntitySet="Texts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoAudio_Application" Association="Self.FK_VideoAudio_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="VideoAudio" EntitySet="VideoAudios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Voice_Application" Association="Self.FK_Voice_Application">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="Voice" EntitySet="Voices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Company_Supporter" Association="Self.fk_Company_Supporter">
+            <End Role="Supporters" EntitySet="Supporters" />
+            <End Role="Companies" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supporter_Company" Association="Self.FK_Supporter_Company">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Supporters" EntitySet="Supporters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Content_ContentType" Association="Self.FK_Content_ContentType">
+            <End Role="ContentTypes" EntitySet="ContentTypes" />
+            <End Role="Contents" EntitySet="Contents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContinentID" Association="Self.FK_ContinentID">
+            <End Role="Continents" EntitySet="Continents" />
+            <End Role="Geolocations" EntitySet="Geolocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Country_0" Association="Self.FK_Country_0">
+            <End Role="Continents" EntitySet="Continents" />
+            <End Role="Country" EntitySet="Countries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Geolocations_0" Association="Self.FK_Geolocations_0">
+            <End Role="States" EntitySet="States" />
+            <End Role="Geolocations" EntitySet="Geolocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Parent_Geolocation" Association="Self.FK_Parent_Geolocation">
+            <End Role="Geolocations" EntitySet="Geolocations" />
+            <End Role="Geolocations1" EntitySet="Geolocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hint_QA" Association="Self.FK_Hint_QA">
+            <End Role="QAs" EntitySet="QAs" />
+            <End Role="Hint" EntitySet="Hints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QA_QuestionType" Association="Self.FK_QA_QuestionType">
+            <End Role="QuestionType" EntitySet="QuestionTypes" />
+            <End Role="QAs" EntitySet="QAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sequence_Next" Association="Self.FK_Sequence_Next">
+            <End Role="Sequence" EntitySet="Sequences" />
+            <End Role="Sequence1" EntitySet="Sequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sequence_SequenceType" Association="Self.FK_Sequence_SequenceType">
+            <End Role="SequenceType" EntitySet="SequenceTypes" />
+            <End Role="Sequence" EntitySet="Sequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supporter_Supporter_Role" Association="Self.FK_Supporter_Supporter_Role">
+            <End Role="Supporter_Roles" EntitySet="Supporter_Roles" />
+            <End Role="Supporters" EntitySet="Supporters" />
+          </AssociationSet>
+          <AssociationSet Name="Address_Events" Association="Self.Address_Events">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="Device" Association="Self.Device">
+            <End Role="Applications" EntitySet="Applications" />
+            <End Role="DeviceType" EntitySet="DeviceTypes" />
+          </AssociationSet>
+          <AssociationSet Name="webpages_UsersInRoles" Association="Self.webpages_UsersInRoles">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="Supporters" EntitySet="Supporters" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Copy_IMR_TestModelStoreContainer" CdmEntityContainer="Copy_IMR_TestEntities6">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Abouts">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.About">
+              <MappingFragment StoreEntitySet="About">
+                <ScalarProperty Name="About_Id" ColumnName="About_Id" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Address_1" ColumnName="Address_1" />
+                <ScalarProperty Name="Address_2" ColumnName="Address_2" />
+                <ScalarProperty Name="Address_3" ColumnName="Address_3" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="StateProvinceID" ColumnName="StateProvinceID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="Postal_Code" ColumnName="Postal_Code" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ads">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Ad">
+              <MappingFragment StoreEntitySet="Ads">
+                <ScalarProperty Name="Ads_Id" ColumnName="Ads_Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+                <ScalarProperty Name="DownloadTime" ColumnName="DownloadTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Agents">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Agent">
+              <MappingFragment StoreEntitySet="Agent">
+                <ScalarProperty Name="Agent_Id" ColumnName="Agent_Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="DownloadTime" ColumnName="DownloadTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Application_Supporters">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Application_Supporters">
+              <MappingFragment StoreEntitySet="Application_Supporters">
+                <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+                <ScalarProperty Name="Supporter_Id" ColumnName="Supporter_Id" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Application_Vendor">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Application_Vendor">
+              <MappingFragment StoreEntitySet="Application_Vendor">
+                <ScalarProperty Name="Vendor_Id" ColumnName="Vendor_Id" />
+                <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Applications">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Application">
+              <MappingFragment StoreEntitySet="Applications">
+                <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+                <ScalarProperty Name="ApplicationToken" ColumnName="ApplicationToken" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Company">
+              <MappingFragment StoreEntitySet="Companies">
+                <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Admin_Id" ColumnName="Admin_Id" />
+                <ScalarProperty Name="Company_Url" ColumnName="Company_Url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contents">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Content">
+              <MappingFragment StoreEntitySet="Contents">
+                <ScalarProperty Name="Content_Id" ColumnName="Content_Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+                <ScalarProperty Name="ContentType_Id" ColumnName="ContentType_Id" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="DownloadTime" ColumnName="DownloadTime" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+                <ScalarProperty Name="Place" ColumnName="Place" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentTypes">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.ContentType">
+              <MappingFragment StoreEntitySet="ContentTypes">
+                <ScalarProperty Name="ContentType_Id" ColumnName="ContentType_Id" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Continents">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Continent">
+              <MappingFragment StoreEntitySet="Continents">
+                <ScalarProperty Name="ContinentID" ColumnName="ContinentID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="abbreviation" ColumnName="abbreviation" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="ContinentID" ColumnName="ContinentID" />
+                <ScalarProperty Name="Continent_Name" ColumnName="Continent_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeviceTypes">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.DeviceType">
+              <MappingFragment StoreEntitySet="DeviceType">
+                <ScalarProperty Name="Device_Id" ColumnName="Device_Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Event">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+                <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Altitude" ColumnName="Altitude" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Geolocations">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Geolocation">
+              <MappingFragment StoreEntitySet="Geolocations">
+                <ScalarProperty Name="GeolocationID" ColumnName="GeolocationID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Altitude" ColumnName="Altitude" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+                <ScalarProperty Name="Parent_Geo_Id" ColumnName="Parent_Geo_Id" />
+                <ScalarProperty Name="Range" ColumnName="Range" />
+                <ScalarProperty Name="DownloadTime" ColumnName="DownloadTime" />
+                <ScalarProperty Name="ContinentID" ColumnName="ContinentID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hints">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Hint">
+              <MappingFragment StoreEntitySet="Hint">
+                <ScalarProperty Name="Hint_Id" ColumnName="Hint_Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="QA_Id" ColumnName="QA_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Image">
+              <MappingFragment StoreEntitySet="Images">
+                <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="DownloadTime" ColumnName="DownloadTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MobileUsers">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.MobileUser">
+              <MappingFragment StoreEntitySet="MobileUsers">
+                <ScalarProperty Name="MobileUser_Id" ColumnName="MobileUser_Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="OptOut" ColumnName="OptOut" />
+                <ScalarProperty Name="PushNotify" ColumnName="PushNotify" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QAs">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.QA">
+              <MappingFragment StoreEntitySet="QAs">
+                <ScalarProperty Name="QAID" ColumnName="QAID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Subtitle" ColumnName="Subtitle" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="Type_Id" ColumnName="Type_Id" />
+                <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+                <ScalarProperty Name="Geo_Id" ColumnName="Geo_Id" />
+                <ScalarProperty Name="DownloadTime" ColumnName="DownloadTime" />
+                <ScalarProperty Name="Sequence_Num" ColumnName="Sequence_Num" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuestionTypes">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.QuestionType">
+              <MappingFragment StoreEntitySet="QuestionType">
+                <ScalarProperty Name="Type_Id" ColumnName="Type_Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sequences">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Sequence">
+              <MappingFragment StoreEntitySet="Sequence">
+                <ScalarProperty Name="Sequence_Id" ColumnName="Sequence_Id" />
+                <ScalarProperty Name="Next_Id" ColumnName="Next_Id" />
+                <ScalarProperty Name="Item_Id" ColumnName="Item_Id" />
+                <ScalarProperty Name="SequenceType_Id" ColumnName="SequenceType_Id" />
+                <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+                <ScalarProperty Name="DownloadTime" ColumnName="DownloadTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SequenceTypes">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.SequenceType">
+              <MappingFragment StoreEntitySet="SequenceType">
+                <ScalarProperty Name="SequenceType_Id" ColumnName="SequenceType_Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.State">
+              <MappingFragment StoreEntitySet="States">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="abbreviation" ColumnName="abbreviation" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supporter_Roles">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Supporter_Roles">
+              <MappingFragment StoreEntitySet="Supporter_Roles">
+                <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supporters">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Supporter">
+              <MappingFragment StoreEntitySet="Supporters">
+                <ScalarProperty Name="Supporter_Id" ColumnName="Supporter_Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FirstTime" ColumnName="FirstTime" />
+                <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+                <ScalarProperty Name="RememberMe" ColumnName="RememberMe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Texts">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Text">
+              <MappingFragment StoreEntitySet="Texts">
+                <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DownloadTime" ColumnName="DownloadTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilities">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Utility">
+              <MappingFragment StoreEntitySet="Utilities">
+                <ScalarProperty Name="Utility_Id" ColumnName="Utility_Id" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Method" ColumnName="Method" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendors">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Vendor">
+              <MappingFragment StoreEntitySet="Vendor">
+                <ScalarProperty Name="Vendor_Id" ColumnName="Vendor_Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VideoAudios">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.VideoAudio">
+              <MappingFragment StoreEntitySet="VideoAudio">
+                <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tilte" ColumnName="Tilte" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="DownloadTime" ColumnName="DownloadTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Voices">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Voice">
+              <MappingFragment StoreEntitySet="Voice">
+                <ScalarProperty Name="Voice_Id" ColumnName="Voice_Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DownloadTime" ColumnName="DownloadTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Membership">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.webpages_Membership">
+              <MappingFragment StoreEntitySet="webpages_Membership">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+                <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+                <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+                <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+                <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_OAuthMembership">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.webpages_OAuthMembership">
+              <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+                <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Roles">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.webpages_Roles">
+              <MappingFragment StoreEntitySet="webpages_Roles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notifications">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Notification">
+              <MappingFragment StoreEntitySet="Notification">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="C__createdAt" ColumnName="__createdAt" />
+                <ScalarProperty Name="C__updatedAt" ColumnName="__updatedAt" />
+                <ScalarProperty Name="C__version" ColumnName="__version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Settings">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.Setting">
+              <MappingFragment StoreEntitySet="Settings">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="C__createdAt" ColumnName="__createdAt" />
+                <ScalarProperty Name="C__updatedAt" ColumnName="__updatedAt" />
+                <ScalarProperty Name="C__version" ColumnName="__version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Copy_IMR_TestModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="C__createdAt" ColumnName="__createdAt" />
+                <ScalarProperty Name="C__updatedAt" ColumnName="__updatedAt" />
+                <ScalarProperty Name="C__version" ColumnName="__version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Address_Events" TypeName="Copy_IMR_TestModel.Address_Events" StoreEntitySet="Address_Events">
+            <EndProperty Name="Address">
+              <ScalarProperty Name="ID" ColumnName="Address_Id" />
+            </EndProperty>
+            <EndProperty Name="Events">
+              <ScalarProperty Name="ID" ColumnName="Events_Id" />
+              <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="Copy_IMR_TestModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Device" TypeName="Copy_IMR_TestModel.Device" StoreEntitySet="Device">
+            <EndProperty Name="Applications">
+              <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+            </EndProperty>
+            <EndProperty Name="DeviceType">
+              <ScalarProperty Name="Device_Id" ColumnName="Device_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="Copy_IMR_TestModel.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
+            <EndProperty Name="webpages_Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="Supporters">
+              <ScalarProperty Name="Supporter_Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

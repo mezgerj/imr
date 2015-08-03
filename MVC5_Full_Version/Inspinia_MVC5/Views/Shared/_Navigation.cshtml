@@ -1,0 +1,87 @@
+﻿@model Inspinia_MVC5.Models.NavigationView
+
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <span>
+                        <img alt="image" class="img-circle" src="~/Images/gallery/default-avatar.jpg" width="48" height="48" />
+                    </span>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong class="font-bold"><b>@(((Inspinia_MVC5.Models.Supporter)Session["Supporter"]).FirstName.ToString()) @(((Inspinia_MVC5.Models.Supporter)Session["Supporter"]).LastName.ToString())</b></strong>
+                            </span> <span class="text-muted text-xs block">
+                            @if (((Inspinia_MVC5.Models.Supporter)Session["Supporter"]).Role_Id == 1) 
+                            { <b>Super Admin</b> }
+                            @if (((Inspinia_MVC5.Models.Supporter)Session["Supporter"]).Role_Id == 2)
+                            { <b>Admin</b> }
+                            @if (((Inspinia_MVC5.Models.Supporter)Session["Supporter"]).Role_Id == 3)
+                            { <b>Manager</b> }
+                            @if (((Inspinia_MVC5.Models.Supporter)Session["Supporter"]).Role_Id == 4)
+                            { <b>Supporter</b> }
+                            <b class="caret"></b></span>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="@Url.Action("Details/" + ((Inspinia_MVC5.Models.Supporter)Session["supporter"]).Supporter_Id, "Supporters")">Profile</a></li>
+                        <li class="divider"></li>
+                        <li><a href="@Url.Action("LogOff", "Account")">Logout</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    IMR
+                </div>
+            </li>
+
+            <!--TODO needs to be custom to each user-->
+            <li class="@Html.IsSelected(controller: "Companies")">
+                <a href="@Url.Action("Index", "Companies")"><i class="fa fa-bank"></i> <span class="nav-label">Companies</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    @foreach (Inspinia_MVC5.Models.Company company in Model.Companies)
+                    {
+                        String page = "Details/" + company.Company_Id.ToString();
+                        <li class="@Html.IsSelected(action: "Companies")"><a href="@Url.Action(page, "Companies")">@company.Name</a></li>
+                    }
+                </ul>
+            </li>
+            <li class="@Html.IsSelected(controller: "Supporters")">
+                <a href="@Url.Action("Index", "Supporters")"><i class="fa fa-user fa-lg"></i> <span class="nav-label">Supporters</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    @foreach (Inspinia_MVC5.Models.Supporter supporter in Model.Supporters)
+                    {
+                        String page = "Details/" + supporter.Supporter_Id.ToString();
+                        <li class="@Html.IsSelected(action: "Supporters")"><a href="@Url.Action(page, "Supporters")">@supporter.UserName</a></li>
+                    }
+                </ul>
+            </li>
+            <li class="@Html.IsSelected(controller: "Applications")">
+                <a href="@Url.Action("Index", "Applications")"><i class="fa fa-desktop"></i> <span class="nav-label">Applications</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    @foreach (Inspinia_MVC5.Models.Application application in Model.Applications)
+                    {
+                        String page = "Details/" + application.Application_Id.ToString();
+                        <li class="@Html.IsSelected(action: "Applications")"><a href="@Url.Action(page, "Applications")">@application.Name</a></li>
+                    }
+                </ul>
+            </li>
+            <li class="@Html.IsSelected(controller: "Contents")">
+                <a href="@Url.Action("Index", "Contents")"><i class="fa fa-file-image-o"></i> <span class="nav-label">Content</span></a>
+            </li>
+            <li class="@Html.IsSelected(controller: "Geolocations")">
+                <a href="@Url.Action("Index", "Geolocations")"><i class="fa fa-globe fa-lg"></i> <span class="nav-label">Geolocations</span></span></a>
+            </li>
+            <li class="@Html.IsSelected(controller: "Events")">
+                <a href="@Url.Action("Index", "Events")"><i class="fa fa-calendar"></i> <span class="nav-label">Events</span></span></a>
+            </li>
+            <li class="@Html.IsSelected(controller: "QA")">
+                <a href="@Url.Action("Index", "QA")"><i class="fa fa-question-circle"></i> <span class="nav-label">QA</span></span></a>
+            </li>
+            <li class="@Html.IsSelected(controller: "Utilities")">
+                <a href="@Url.Action("Index", "Utilities")"><i class="fa fa-envelope"></i> <span class="nav-label">Utilities</span></a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
